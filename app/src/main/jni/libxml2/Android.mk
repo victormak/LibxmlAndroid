@@ -19,9 +19,14 @@ $(LOCAL_PATH)/../libiconv/libcharset \
 $(LOCAL_PATH)/../libiconv/lib \
 $(LOCAL_PATH)/../libiconv/libcharset/include
 #$(warning $(LOCAL_C_INCLUDES) )
-LOCAL_MODULE := libxml2
+LOCAL_MODULE := libxml2x
+LOCAL_CFLAGS += \
+    -Wno-missing-field-initializers \
+    -Wno-self-assign \
+    -Wno-sign-compare \
+    -Wno-tautological-pointer-compare
 LOCAL_CFLAGS += -DLIBXML_THREAD_ENABLED=1
 LOCAL_CLANG := true
-LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
-LOCAL_SHARED_LIBRARIES := libiconv
+#LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
+LOCAL_SHARED_LIBRARIES += libicuuc libiconvx
 include $(BUILD_SHARED_LIBRARY)

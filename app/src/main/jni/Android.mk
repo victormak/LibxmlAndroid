@@ -11,15 +11,9 @@ $(LOCAL_PATH)/libiconv/libcharset \
 $(LOCAL_PATH)/libiconv/lib \
 $(LOCAL_PATH)/libiconv/libcharset/include
 
-LOCAL_CFLAGS += \
-    -Wno-missing-field-initializers \
-    -Wno-self-assign \
-    -Wno-sign-compare \
-    -Wno-tautological-pointer-compare
-LOCAL_CFLAGS += -DLIBXML_THREAD_ENABLED=1
 LOCAL_PRELINK_MODULE := false
-
-LOCAL_SHARED_LIBRARIES += libiconv libxml2
-LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
+LOCAL_LDLIBS := -llog
+LOCAL_SHARED_LIBRARIES += libicuuc libiconvx libxml2x
 include $(BUILD_SHARED_LIBRARY)
+#include $(BUILD_EXECUTABLE)
 include $(call all-makefiles-under,$(LOCAL_PATH))
