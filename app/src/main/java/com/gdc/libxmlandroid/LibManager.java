@@ -12,7 +12,7 @@ public class LibManager {
         System.loadLibrary("iconvx");
         System.loadLibrary("xml2x");
         System.loadLibrary("myLibxml2");
-        Log.i("shit", "android loadLibary done");
+        Log.i("LibManager", "android loadLibary done");
     }
 
     public native String test();
